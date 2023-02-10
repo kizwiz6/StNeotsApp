@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using StNeotsApp;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -17,17 +19,17 @@
             Console.WriteLine(place.Name);
         }
 
-        var info = new StNeotsInformation();
-        Console.WriteLine("\nInformation about St.Neots:");
-        Console.WriteLine(info.GetInformation());
-
         var demographics = new StNeotsDemographics();
         Console.WriteLine("\nDemographics of St. Neots:");
-        Console.WriteLine(demographics.GetDemographics());
+        Console.WriteLine(demographics.GetPopulation());
 
         var weather = new StNeotsWeather();
         Console.WriteLine("\nCurrent weather in St. Neots:");
-        Console.WriteLine(weather.GetCurrentWEather());
+        Console.WriteLine(weather.GetTemperature());
+
+        var info = new StNeotsInformation(demographics, weather);
+        Console.WriteLine("\nInformation about St.Neots:");
+        Console.WriteLine(info.GetInfromation());
 
         Console.ReadLine();
     }
